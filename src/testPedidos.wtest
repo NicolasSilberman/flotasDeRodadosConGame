@@ -1,0 +1,50 @@
+import dependencia.*
+import otrosRodados.*
+import trafic.*
+import pedidos.*
+
+describe "pedidos funcionando" 
+{
+const cachito = new Corsa()
+const pedido = new Pedidos()
+	
+fixture
+{
+	cachito.color("rojo")
+	pedido.distancia(960)
+	pedido.tiempo(8)
+	pedido.pasajeros(4)
+	pedido.coloresRechazados(["negro","azul"])
+
+}
+
+test "cachito totalmente funcional"
+{ assert.that(pedido.satisface(cachito)) }
+
+test "cachito no cumple velocidad"{ 
+	pedido.tiempo(6)
+	assert.notThat(pedido.satisface(cachito))	
+}
+
+test "cachito no cumple capacidad"{ 
+	pedido.pasajeros(6)
+	assert.notThat(pedido.satisface(cachito))	
+}
+
+test "cachito no cumple color"{
+	pedido.coloresRechazados(["negro","azul","rojo"])
+	assert.notThat(pedido.satisface(cachito))	
+}
+
+test "cachito no cumple nada"{
+	pedido.distancia(960)
+	pedido.tiempo(6)
+	pedido.pasajeros(6)
+	pedido.coloresRechazados(["negro","azul","rojo"])
+	assert.notThat(pedido.satisface(cachito))
+}
+		
+}
+
+
+
