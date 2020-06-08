@@ -27,7 +27,7 @@ method esteColorEsIncompatible(color) {return pedidos.all({p => p.coloresRechaza
 method pedidosSinSatisfacer()
 {
 	
-	return flota.any({f=> pedidos.satisface(f)})	
+	return flota.filter({f=> pedidos.forEach({p => p.satisface(f)})})	
 	
 }
 

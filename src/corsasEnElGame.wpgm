@@ -4,22 +4,28 @@ import colores.*
 
 program corsasEnElGame {
 	
-	const corsa = new Corsa()
+	const corsa1 = new Corsa()
+	const corsa2 = new Corsa()
+	const corsa3 = new Corsa()
 	 
 	game.title("Corsas en el game")
 	game.height(15)
 	game.width(15)
-	game.addVisual(corsa)
-	corsa.position(game.center())
+	game.addVisual(corsa1)
+	corsa1.position(game.center())
 	
-	keyboard.up().onPressDo {corsa.moverArriba()}
-	keyboard.down().onPressDo {corsa.moverAbajo()}
-	keyboard.right().onPressDo {corsa.moverDerecha()}
-	keyboard.left().onPressDo {corsa.moverIzquierda()}
+	keyboard.up().onPressDo {corsa1.moverArriba()}
+	keyboard.down().onPressDo {corsa1.moverAbajo()}
+	keyboard.right().onPressDo {corsa1.moverDerecha()}
+	keyboard.left().onPressDo {corsa1.moverIzquierda()}
 	
-	keyboard.r().onPressDo {corsa.image(rojo.image())}
-	keyboard.a().onPressDo {corsa.image(azul.image())}
-	keyboard.v().onPressDo {corsa.image(verde.image())}
+	keyboard.r().onPressDo {corsa1.image(rojo.image())}
+	keyboard.a().onPressDo {corsa1.image(azul.image())}
+	keyboard.v().onPressDo {corsa1.image(verde.image())}
 	
 	game.start()
-}
+	
+	}
+
+
+
