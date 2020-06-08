@@ -1,7 +1,25 @@
 import wollok.game.*
+import otrosRodados.*
+import colores.*
 
 program corsasEnElGame {
-	// hacer las inicializaciones necesarias 
+	
+	const corsa = new Corsa()
+	 
+	game.title("Corsas en el game")
+	game.height(15)
+	game.width(15)
+	game.addVisual(corsa)
+	corsa.position(game.center())
+	
+	keyboard.up().onPressDo {corsa.moverArriba()}
+	keyboard.down().onPressDo {corsa.moverAbajo()}
+	keyboard.right().onPressDo {corsa.moverDerecha()}
+	keyboard.left().onPressDo {corsa.moverIzquierda()}
+	
+	keyboard.r().onPressDo {corsa.image(rojo.image())}
+	keyboard.a().onPressDo {corsa.image(azul.image())}
+	keyboard.v().onPressDo {corsa.image(verde.image())}
 	
 	game.start()
 }
